@@ -1,0 +1,240 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Neo Blueprint Tech - Light Mode */
+    --background: 210 33% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 219 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 219 100% 65%;
+
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 215 25% 92%;
+    --muted-foreground: 215 19% 35%;
+
+    --accent: 199 92% 60%;
+    --accent-foreground: 222 47% 11%;
+    --accent-glow: 199 92% 75%;
+
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    
+    --warning: 48 96% 53%;
+    --warning-foreground: 222 47% 11%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 25% 86%;
+    --input: 215 25% 86%;
+    --ring: 219 100% 50%;
+
+    /* Neo Blueprint specific tokens */
+    --dashboard-bg: 210 33% 98%;
+    --surface: 0 0% 100%;
+    --grid-line: 215 25% 90%;
+    --glow-blue: 219 100% 50%;
+    
+    /* Status colors */
+    --status-available: 142 71% 45%;
+    --status-borrowed: 217 91% 60%;
+    --status-maintenance: 48 96% 53%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(219 100% 50%), hsl(199 92% 60%));
+    --gradient-accent: linear-gradient(135deg, hsl(199 92% 60%), hsl(199 92% 75%));
+    --gradient-surface: linear-gradient(180deg, hsl(0 0% 100%), hsl(210 33% 99%));
+    --gradient-blueprint: linear-gradient(135deg, hsl(219 100% 50% / 0.05), hsl(199 92% 60% / 0.05));
+    
+    /* Shadows with blue glow */
+    --shadow-card: 0 4px 20px -2px hsl(219 100% 50% / 0.08);
+    --shadow-hover: 0 8px 30px -4px hsl(219 100% 50% / 0.15);
+    --shadow-glow: 0 0 40px hsl(199 92% 60% / 0.2);
+    --shadow-inner: inset 0 2px 4px 0 hsl(215 25% 86% / 0.3);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Neo Blueprint Tech - Dark Mode */
+    --background: 222 47% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 40% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 40% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 219 100% 60%;
+    --primary-foreground: 222 47% 11%;
+    --primary-glow: 219 100% 75%;
+
+    --secondary: 217 33% 20%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 199 92% 65%;
+    --accent-foreground: 222 47% 11%;
+    --accent-glow: 199 92% 80%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 20%;
+    --input: 217 33% 20%;
+    --ring: 219 100% 60%;
+    
+    --dashboard-bg: 222 47% 8%;
+    --surface: 222 40% 11%;
+    --grid-line: 217 33% 15%;
+    --glow-blue: 219 100% 60%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-grotesk antialiased;
+  }
+  
+  /* Blueprint grid background */
+  .blueprint-grid {
+    background-image: 
+      linear-gradient(to right, hsl(var(--grid-line)) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--grid-line)) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  
+  /* Subtle glow effect */
+  .glow-effect {
+    box-shadow: 0 0 20px hsl(var(--glow-blue) / 0.15);
+  }
+  
+  /* Glass morphism */
+  .glass-panel {
+    background: hsl(var(--card) / 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+}
+
+@layer utilities {
+  /* Smooth transitions */
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Hover lift effect */
+  .hover-lift {
+    @apply transition-smooth hover:-translate-y-1 hover:shadow-hover;
+  }
+  
+  /* Status badge styles */
+  .status-available {
+    @apply bg-success/10 text-success border-success/20;
+  }
+  
+  .status-borrowed {
+    @apply bg-blue-500/10 text-blue-600 border-blue-500/20;
+  }
+  
+  .status-maintenance {
+    @apply bg-warning/10 text-warning border-warning/20;
+  }
+}
+
+/* Print styles */
+@media print {
+  @page {
+    margin: 1cm;
+  }
+
+  body {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .print\\:hidden {
+    display: none !important;
+  }
+
+  .print\\:block {
+    display: block !important;
+  }
+
+  .print\\:space-y-4 > * + * {
+    margin-top: 1rem !important;
+  }
+
+  /* Avoid page breaks inside elements */
+  table, figure, img, pre, blockquote {
+    page-break-inside: avoid;
+  }
+
+  /* Keep headings with content */
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+  }
+
+  /* Force page breaks before major sections */
+  .page-break-before {
+    page-break-before: always;
+  }
+
+  /* Remove backgrounds and shadows for better printing */
+  .glass-panel, .glow-effect, .shadow-card {
+    background: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Ensure borders are visible */
+  .border, [class*="border-"] {
+    border-color: #000 !important;
+  }
+}
